@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int FindDuplicate(vector<int> v)
+// Method 1
+/*int FindDuplicate(vector<int> v)
 {
     map<int, int> mp;
     for (int i = 0; i < v.size(); i++)
@@ -13,6 +14,20 @@ int FindDuplicate(vector<int> v)
         if (i.second >= 2)
         {
             return i.first;
+        }
+    }
+    return -1;
+}*/
+
+// Method 2
+int FindDuplicate(vector<int> v)
+{
+    sort(v.begin(), v.end());
+    for (int i = 0; i < v.size(); i++)
+    {
+        if (v[i] == v[i + 1])
+        {
+            return v[i];
         }
     }
     return -1;
